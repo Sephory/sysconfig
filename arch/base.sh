@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #Get Bitwarden creds
-if [ -z $BW_USERNAME ] then
+if [ -z $BW_USERNAME ]
+then
   read -p "Bitwarden Username: " BW_USERNAME
   read -sp "Bitwarden Password: " BW_PASSWORD
 fi
@@ -13,7 +14,7 @@ echo "$TIMEZONE" > /etc/timezone
 
 #Install essentiall applications
 BUILDDEPS="cmake unzip autoconf protobuf"
-pacman -Syu --noconfirm
+pacman -Sy --noconfirm
 pacman -S --noconfirm zsh tmux git openssh chezmoi bat fzf ripgrep yarn \
 	python python-msgpack python-pynvim $BUILDDEPS
 yarn global add @bitwarden/cli
