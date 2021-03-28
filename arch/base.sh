@@ -4,7 +4,7 @@
 if [ -z $BW_USERNAME ] then
   read -p "Bitwarden Username: " BW_USERNAME
   read -sp "Bitwarden Password: " BW_PASSWORD
-end
+fi
 
 #Set Timezone
 TIMEZONE=${TIMEZONE:-US/Arizona}
