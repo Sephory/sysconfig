@@ -28,8 +28,8 @@ make install
 rm -R /tmp/neovim-build
 
 #Get dotfiles and apply
-USERNAME=${$1:-sephory}
-export HOME=${$2:-/home/$USERNAME}
+USERNAME=${1:-sephory}
+export HOME=${2:-/home/$USERNAME}
 cd $HOME
 export BW_SESSION=$(bw login $BW_USERNAME $BW_PASSWORD --raw)
 unset BW_USERNAME BW_PASSWORD
