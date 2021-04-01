@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SCRIPT_PATH=$(dirname "$(realpath -s "$0")")
+
 #Get Bitwarden creds
 if [ -z $BW_USERNAME ]
 then
@@ -22,12 +24,12 @@ pacman -S --noconfirm zsh tmux git openssh chezmoi bat fzf ripgrep ranger \
 yarn global add @bitwarden/cli
 
 #Build latest Neovim from source
-../common/build-nvim.sh
+$SCRIPT_PATH/../common/build-nvim.sh
 
 #Get dotfiles and apply
 USERNAME=${1:-sephory}
 export HOME=${2:-/home/$USERNAME}
-../common/dotfiles.sh $USERNAME $HOME
+$SCRIPT_PATH/../common/dotfiles.sh $USERNAME $HOME
 
 #Install Plugin managers
 curl -Lo  ~/.zsh/antigen.zsh --create-dirs git.io/antigen
