@@ -16,27 +16,18 @@ locale-gen
 
 #Install essentiall applications
 pacman -Sy --noconfirm
-pacman -S --noconfirm zsh tmux git openssh chezmoi bat fzf ripgrep yarn \
-	python python-msgpack python-pynvim cmake unzip autoconf protobuf \
+pacman -S --noconfirm zsh tmux git openssh chezmoi bat fzf ripgrep ranger \
+        yarn python python-msgpack python-pynvim cmake unzip autoconf protobuf \
         clang python-pip
 yarn global add @bitwarden/cli
 
 #Build latest Neovim from source
-mkdir -p /tmp/neovim-build
-git clone https://github.com/neovim/neovim /tmp/neovim-build
-cd /tmp/neovim-build
-make CCMAKE_BUILD_TYPE=RelWithDebInfo
-make install
-rm -R /tmp/neovim-build
+../common/build-nvim.sh
 
 #Get dotfiles and apply
 USERNAME=${1:-sephory}
 export HOME=${2:-/home/$USERNAME}
-cd $HOME
-export BW_SESSION=$(bw login $BW_USERNAME $BW_PASSWORD --raw)
-unset BW_USERNAME BW_PASSWORD
-chezmoi init https://$(bw get username github.com):$(bw get password github.com)@github.com/sephory/dotfiles
-chezmoi apply
+../common/dotfiles.sh $USERNAME $HOMe
 
 #Install Plugin managers
 curl -Lo  ~/.zsh/antigen.zsh --create-dirs git.io/antigen
