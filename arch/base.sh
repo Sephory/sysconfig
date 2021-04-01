@@ -13,10 +13,10 @@ cp /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 echo "$TIMEZONE" > /etc/timezone
 
 #Install essentiall applications
-BUILDDEPS="cmake unzip autoconf protobuf"
 pacman -Sy --noconfirm
 pacman -S --noconfirm zsh tmux git openssh chezmoi bat fzf ripgrep yarn \
-	python python-msgpack python-pynvim $BUILDDEPS
+	python python-msgpack python-pynvim cmake unzip autoconf protobuf \
+        clang python-pip
 yarn global add @bitwarden/cli
 
 #Build latest Neovim from source
