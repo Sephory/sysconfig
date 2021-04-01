@@ -27,7 +27,7 @@ yarn global add @bitwarden/cli
 #Get dotfiles and apply
 USERNAME=${1:-sephory}
 export HOME=${2:-/home/$USERNAME}
-../common/dotfiles.sh $USERNAME $HOMe
+../common/dotfiles.sh $USERNAME $HOME
 
 #Install Plugin managers
 curl -Lo  ~/.zsh/antigen.zsh --create-dirs git.io/antigen
