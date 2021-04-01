@@ -7,10 +7,11 @@ then
   read -sp "Bitwarden Password: " BW_PASSWORD
 fi
 
-#Set Timezone
+#Set Timezone and Locale
 TIMEZONE=${TIMEZONE:-US/Arizona}
 cp /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 echo "$TIMEZONE" > /etc/timezone
+sed -ri 's/^#en_US\.UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 
 #Install essentiall applications
 pacman -Sy --noconfirm
