@@ -8,8 +8,8 @@ cd $HOME
 DOTNET_SCRIPT=/tmp/dotnet/dotnet-install.sh
 DOTNET_SDKS=("2.2" "3.1")
 mkdir /tmp/dotnet
-chmod 700 $DOTNET_SCRIPT
 curl -L https://dot.net/v1/dotnet-install.sh -o $DOTNET_SCRIPT
+chmod 700 $DOTNET_SCRIPT
 for SDK in ${DOTNET_SDKS[@]}; do
   $DOTNET_SCRIPT -c $SDK
 done
