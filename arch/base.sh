@@ -19,8 +19,8 @@ locale-gen
 #Install essentiall applications
 pacman -Sy --noconfirm
 pacman -S --noconfirm zsh tmux git chezmoi bat fzf ripgrep ranger w3m \
-        yarn python python-msgpack python-pynvim cmake unzip autoconf protobuf \
-        openssh clang python-pip
+        yarn python python-msgpack python-pynvim cmake unzip protobuf \
+        base-devel openssh clang python-pip
 yarn global add @bitwarden/cli
 
 #Build latest Neovim from source
