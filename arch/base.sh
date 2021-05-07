@@ -26,6 +26,10 @@ yarn global add @bitwarden/cli
 #Build latest Neovim from source
 $SCRIPT_PATH/../common/build-nvim.sh
 
+
+#Allow wheel group to sudo
+sed -i 's/^# \(%wheel ALL=(ALL) ALL\)/\1/' /etc/sudoers
+
 #Create User
 USERNAME=${1:-sephory}
 USERID=${2:-1000}
