@@ -29,8 +29,8 @@ $SCRIPT_PATH/../common/build-nvim.sh
 #Create User
 USERNAME=${1:-sephory}
 USERID=${2:-1000}
-useradd -ms /bin/zsh -u $USERID
-usermod --aG wheel $USERNAME
+useradd -ms /bin/zsh -u $USERID $USERNAME
+usermod -aG wheel $USERNAME
 
 #Get dotfiles and apply
 export HOME=${2:-/home/$USERNAME}
