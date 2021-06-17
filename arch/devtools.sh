@@ -6,7 +6,7 @@ cd $HOME
 
 #dotnet tools
 DOTNET_SCRIPT=/tmp/dotnet/dotnet-install.sh
-DOTNET_SDKS=("2.2" "3.1")
+DOTNET_SDKS=("2.2" "3.1", "5.0")
 mkdir /tmp/dotnet
 curl -L https://dot.net/v1/dotnet-install.sh -o $DOTNET_SCRIPT
 chmod 700 $DOTNET_SCRIPT
