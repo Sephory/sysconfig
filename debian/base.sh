@@ -13,11 +13,12 @@ apt update
 apt upgrade -y
 
 #Install essential applications
-apt install -y zsh tmux git fzf ripgrep ranger yarnpkg \
+apt install -y zsh tmux git fzf ripgrep ranger npm \
 	python3 python3-msgpack python3-pip cmake unzip \
-	libprotobuf-dev build-essential ssh clang curl
-
-yarnpkg global add @bitwarden/cli
+	libprotobuf-dev build-essential ssh clang curl \
+	pkg-config libtool-bin gettext
+npm i -g yarn
+yarn global add @bitwarden/cli@1.16.0
 pip3 install pynvim
 sh -c "$(curl -fsLS git.io/chezmoi)"
 
@@ -35,8 +36,9 @@ if ! id $USERNAME &>/dev/null; then
 fi
 
 export HOME=${2:-/home/$USERNAME}
-PATH=$HOME/bin:$PATH
+PATH=$HOME/bin:$HOME/.yarn/bin:$PATH
 
+source $SCRIPT_PATH/../common/package-managers.sh
 source $SCRIPT_PATH/../common/dotfiles.sh
 
 chown -R $USERNAME $HOME
