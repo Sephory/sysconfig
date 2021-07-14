@@ -20,7 +20,7 @@ locale-gen
 pacman -Sy --noconfirm
 pacman -S --noconfirm zsh tmux git chezmoi bat fzf ripgrep ranger w3m \
         yarn python python-msgpack python-pynvim cmake unzip protobuf \
-        base-devel openssh clang python-pip
+        base-devel openssh clang python-pip jq
 yarn global add @bitwarden/cli
 
 #Build latest Neovim from source

@@ -16,7 +16,7 @@ apt upgrade -y
 apt install -y zsh tmux git fzf ripgrep ranger npm \
 	python3 python3-msgpack python3-pip cmake unzip \
 	libprotobuf-dev build-essential ssh clang curl \
-	pkg-config libtool-bin gettext
+	pkg-config libtool-bin gettext jq
 npm i -g yarn
 yarn global add @bitwarden/cli@1.16.0
 pip3 install pynvim
