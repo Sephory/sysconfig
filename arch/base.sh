@@ -18,14 +18,9 @@ locale-gen
 
 #Install essentiall applications
 pacman -Sy --noconfirm
-pacman -S --noconfirm zsh tmux git chezmoi bat fzf ripgrep ranger w3m \
-        yarn python python-msgpack python-pynvim cmake unzip protobuf \
-        base-devel openssh clang python-pip jq
+pacman -S --noconfirm zsh git chezmoi bat fzf ripgrep ranger \
+        yarn jq unzip openssh
 yarn global add @bitwarden/cli
-
-#Build latest Neovim from source
-source $SCRIPT_PATH/../common/build-nvim.sh
-
 
 #Allow wheel group to sudo
 sed -i 's/^# \(%wheel ALL=(ALL) ALL\)/\1/' /etc/sudoers
