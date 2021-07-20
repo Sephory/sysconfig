@@ -20,7 +20,7 @@ locale-gen
 pacman -Sy --noconfirm
 pacman -S --noconfirm zsh git chezmoi bat fzf ripgrep ranger \
         yarn jq unzip openssh
-yarn global add @bitwarden/cli
+yarn global add @bitwarden/cli --ignore-engines
 
 #Allow wheel group to sudo
 sed -i 's/^# \(%wheel ALL=(ALL) ALL\)/\1/' /etc/sudoers
@@ -37,5 +37,6 @@ fi
 #Get dotfiles and apply
 export HOME=${2:-/home/$USERNAME}
 source $SCRIPT_PATH/../common/dotfiles.sh
+source $SCRIPT_PATH/../common/package-managers.sh
 
-chown -R $USERNAME $HOME
+chown -R $USERNAME:$USERNAME $HOME
