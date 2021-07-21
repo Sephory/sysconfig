@@ -18,14 +18,9 @@ locale-gen
 
 #Install essentiall applications
 pacman -Sy --noconfirm
-pacman -S --noconfirm zsh tmux git chezmoi bat fzf ripgrep ranger w3m \
-        yarn python python-msgpack python-pynvim cmake unzip protobuf \
-        base-devel openssh clang python-pip
-yarn global add @bitwarden/cli
-
-#Build latest Neovim from source
-source $SCRIPT_PATH/../common/build-nvim.sh
-
+pacman -S --noconfirm zsh git chezmoi bat fzf ripgrep ranger \
+        yarn jq unzip openssh
+yarn global add @bitwarden/cli --ignore-engines
 
 #Allow wheel group to sudo
 sed -i 's/^# \(%wheel ALL=(ALL) ALL\)/\1/' /etc/sudoers
@@ -42,5 +37,6 @@ fi
 #Get dotfiles and apply
 export HOME=${2:-/home/$USERNAME}
 source $SCRIPT_PATH/../common/dotfiles.sh
+source $SCRIPT_PATH/../common/package-managers.sh
 
-chown -R $USERNAME $HOME
+chown -R $USERNAME:$USERNAME $HOME
