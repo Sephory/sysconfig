@@ -22,7 +22,7 @@ yarn global add @bitwarden/cli@1.16.0
 pip3 install pynvim
 sh -c "$(curl -fsLS git.io/chezmoi)"
 
-curl -L $(curl -s https://api.github.com/repos/omnisharp/omnisharp-roslyn/releases/latest \
+curl -L $(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest \
 | rg "browser_download_url.*bat_.*amd64.deb" \
 | cut -d '"' -f 4) -o /tmp/bat.deb \
 && dpkg -i /tmp/bat.deb
