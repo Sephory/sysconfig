@@ -19,6 +19,7 @@ npm i -g yarn
 yarn global add @bitwarden/cli@1.16.0
 pip3 install pynvim
 sh -c "$(curl -fsLS git.io/chezmoi)"
+sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
 
 curl -L $(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest \
 | rg "browser_download_url.*bat_.*amd64.deb" \

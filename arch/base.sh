@@ -21,6 +21,7 @@ pacman -Sy --noconfirm
 pacman -S --noconfirm zsh git chezmoi bat fzf ripgrep ranger \
         yarn jq unzip openssh
 yarn global add @bitwarden/cli --ignore-engines
+sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
 
 #Allow wheel group to sudo
 sed -i 's/^# \(%wheel ALL=(ALL) ALL\)/\1/' /etc/sudoers
